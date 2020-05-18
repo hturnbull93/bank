@@ -60,31 +60,37 @@ CRC modelling:
 > So we don't go out of pocket,  
 > I want withdrawals to only be allowed to occur if the customer has sufficient funds
 
-- [ ] 4
+- [x] 4
 
 > As a Customer,  
 > So I can keep on top of my finances,  
 > I want to be able to print my account statement
 
-- [ ] 4.1
+- [x] 4.1
 
 > As a Customer,  
 > So I know when each transaction happened,  
 > I want transactions on my statement to have the date
 
-- [ ] 4.2
+- [x] 4.2
 
 > As a Customer,  
 > So I know how much each deposit was,  
 > I want deposits on my statement to have the credit amount.
 
-- [ ] 4.3
+- [x] 4.3
 
 > As a Customer,  
 > So I know how much each withdrawal was,  
 > I want withdrawals on my statement to have the debit amount.
 
-- [ ] 4.4
+- [x] 4.4
+
+> As a Customer,  
+> So can keep track of my balance,  
+> I want transactions on my statement to have the balance amount after the transaction was completed.
+
+- [x] 4.5
 
 > As a Customer,  
 > Because more recent transactions are more important to me,  
@@ -108,7 +114,7 @@ In `spec/account_spec.rb` wrote a test for an Account class that is initialised 
 
 In `lib/account.rb`:
 
-- Added class Account with initialize method setting balance attribute with 0, exposed as readable.
+- Added class Account with `initialize` method setting balance attribute with 0, exposed as readable.
 
 ### Deposits
 
@@ -118,21 +124,21 @@ In `lib/account.rb`:
 > So I can keep my money safe,  
 > I want to be able to deposit into my account
 
-Test for Account for a deposit method taking 100 results in a balance of 100. Red.
+Test for Account for a `deposit` method taking 100 results in a balance of 100. Red.
 
-- Added deposit method with amount as param, sets balance to 100 hardcoded.
+- Added `deposit` method with amount as param, sets balance to 100 hardcoded.
 
 Green.
 
-Test for Account for a deposit method taking 200 results in a balance of 200. Red.
+Test for Account for a `deposit` method taking 200 results in a balance of 200. Red.
 
-- deposit method sets balance to the amount passed.
+- `deposit` method sets balance to the amount passed.
 
 Green.
 
 Test for Account for two deposits, one of 100 and another of 300, results in balance of 400.
 
-- deposit method uses `+=` instead of just assigning balance with amount
+- `deposit` method uses `+=` instead of just assigning `@balance` with `amount`
 
 ### Withdrawals
 
@@ -142,15 +148,15 @@ Test for Account for two deposits, one of 100 and another of 300, results in bal
 > So I can spend my money,  
 > I want to be able to withdraw from my account
 
-Test for Account for a withdraw method. In the describe block added a before block to deposit 1000, so there is something to withdraw. 
+Test for Account for a `withdraw` method. In the describe block added a `before` block to deposit 1000, so there is something to withdraw.
 
 Test for withdraw 100 results in a balance of 900. Red.
 
-- Added withdraw method taking amount as param, sets balance to 900 hardcoded.
+- Added `withdraw` method taking amount as param, sets `@balance` to 900 hardcoded.
 
 Test for withdraw 200 results in balance of 800. Red.
 
-- withdraw now sets balance as balance less the withdrawn amount with the `-=` operator.
+- `withdraw` now sets `@balance` as `@balance` less the withdrawn amount with the `-=` operator.
 
 Green.
 
@@ -162,7 +168,7 @@ Green.
 
 Test for withdraw 1500 results in error: Insufficient funds.
 
-- within withdraw, if balance is less than amount raise 'Insufficient funds'
+- within `withdraw`, if `@balance` is less than amount raise 'Insufficient funds'
 
 Green.
 
@@ -170,7 +176,7 @@ Refactored to guard clause from if block.
 
 ### Statement
 
-- [ ] 4
+- [x] 4
 
 > As a Customer,  
 > So I can keep on top of my finances,  
@@ -178,7 +184,7 @@ Refactored to guard clause from if block.
 
 In `spec/account_feature_spec.rb` wrote a feature test based on the above acceptance criteria. Red.
 
-- Added statement method to account.
+- Added `statement` method to account.
 - Hardcoded the response based on the expected statement.
 
 Green.
@@ -189,68 +195,104 @@ For this I think I should implement the Transaction class.
 
 ### Transactions
 
+- [x] 4.1
+
+> As a Customer,  
+> So I know when each transaction happened,  
+> I want transactions on my statement to have the date
+
 In `spec/transaction_spec.rb` added a test for Transaction class, it's display method returns a string in the format of a transaction row on a statement, with the time in the first column. Red.
 
 In `lib/transaction.rb`:
 
-- Transaction class initialised with time as Time.now.
-- formatTime private helper method formats the time as the required "dd/mm/yyyy" string.
-- display method returns the formatTime result into a string with columns as per the statement transaction row.
+- Transaction class initialised with time as `Time.now`.
+- `formatTime` private helper method formats the time as the required "dd/mm/yyyy" string.
+- `display` method returns the `formatTime` result into a string with columns as per the statement transaction row.
 
 Green.
+
+- [x] 4.2
+
+> As a Customer,  
+> So I know how much each deposit was,  
+> I want deposits on my statement to have the credit amount.
 
 Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and credit in second column when initialised with a credit keyword argument.
 
-- Transaction initialise takes a keyword argument credit defaulting to nil, used to set credit instance variable.
-- private helper method creditFormat checks if credit inst var is truthy then returns it as string with trailing space (easiest way I could find to get correct formatting).
-- Display interpolates the creditFormat in the second column.
+- Transaction initialise takes a keyword argument credit defaulting to nil, used to set `@credit`.
+- private helper method `creditFormat` checks if `@credit` is truthy then returns it as string with trailing space (easiest way I could find to get correct formatting).
+- Display interpolates the `creditFormat` in the second column.
 
 Green.
+
+- [x] 4.3
+
+> As a Customer,  
+> So I know how much each withdrawal was,  
+> I want withdrawals on my statement to have the debit amount.
 
 Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and debit in third column when initialised with a debit keyword argument.
 
-- Transaction initialise takes another keyword argument debit defaulting to nil, used to set debit instance variable.
-- private helper method debitFormat checks if debit inst var is truthy then returns it as string with trailing space.
-- Display interpolates the debitFormat in the third column.
+- Transaction initialise takes another keyword argument debit defaulting to nil, used to set `@debit`.
+- private helper method `debitFormat` checks if `@debit` is truthy then returns it as string with trailing space.
+- Display interpolates the `debitFormat` in the third column.
 
 Green.
 
-Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and balance in third column when initialised with a balance keyword argument.
+- [x] 4.4
 
-- Transaction initialise takes another keyword argument balance defaulting to nil, used to set balance instance variable.
-- display method interpolates balance in last column (no need for formatting helper here as it is the last column).
+> As a Customer,  
+> So can keep track of my balance,  
+> I want transactions on my statement to have the balance amount after the transaction was completed.
 
-Refactored the very similar creditFormat and debitFormat methods into a general method format that can accept either as an argument. the format method also uses a guard clause rather than an if block for brevity
+Test for `display` method to return a string in the format of a transaction row on a statement, with the time in the first column, and balance in third column when initialised with a balance keyword argument.
 
-Wrote a test that makes use of all keyword arguments to make sure the display method works as intended.
+- Transaction initialise takes another keyword argument balance defaulting to nil, used to set @balance.
+- `display` method interpolates balance in last column (no need for formatting helper here as it is the last column).
+
+Refactored the very similar `creditFormat` and `debitFormat` methods into a general method `format` that can accept either as an argument. The `format` method also uses a guard clause rather than an if block for brevity.
+
+Wrote a test that makes use of all keyword arguments to make sure the `display` method works as intended.
 
 _It was also at this point i noticed that the figures should be displayed with trailing ".00", so adjusted the tests for that._
 
-- Added a .00 after the formatted item in the format method.
-- Also passed balance through this in the interpolated display.
+- Added a .00 after the formatted item in the `format` method.
+- Also passed `@balance` through this in the interpolated display.
 
 All tests Green.
 
 ### Back to Account Statement
 
-- [ ] 4
+- [x] 4
 
 > As a Customer,  
 > So I can keep on top of my finances,  
 > I want to be able to print my account statement
 
-Now the Transaction class is implemented, the Account deposit and withdraw methods can create transactions that the account can hold. The Account statement method can loop through the held transactions, using their display methods to add to the statement.
+Now the Transaction class is implemented, the Account `deposit` and `withdraw` methods can create transactions that the account can hold. The Account `statement` method can loop through the held transactions, using their display methods to add to the statement.
 
-Wrote a test that the Account should use the Transaction class, and deposit method should call for a new transaction with the amount as credit and the new balance as balance. This test mocks the Transaction class and expects it to receive .new.
+Wrote a test that the Account should use the Transaction class, and `deposit` method should call for a new transaction with the amount as credit and the new balance as balance. This test mocks the Transaction class and expects it to receive `.new`.
 
 - Injected the Transaction class to allow for testing in isolation.
 - deposit method creates a new instance of transaction with the credit amount and resulting balance.
 
 Green.
 
-Wrote a test that the withdraw method should call for a new transaction with the amount as debit and the new balance as balance. This test mocks the Transaction class and expects it to receive .new.
+Wrote a test that the `withdraw` method should call for a new transaction with the amount as debit and the new balance as balance. This test mocks the Transaction class and expects it to receive `.new`.
 
-- withdraw method creates a new instance of transaction with the debit amount and resulting balance.
+- `withdraw` method creates a new instance of transaction with the debit amount and resulting balance.
+
+Green.
+
+In order to satisfy the feature test with the statement:
+
+- Added a `@transactionHistory` initialised as an empty array.
+- In the deposit and withdraw methods the new transaction instance is unshifted onto the `@transactionHistory` array (so they go at the front of the array).
+- The `statement` method has a header variable which is the column titles ending with a newline.
+- a variable, `statementRows` is created by mapping through the `@transactionHistory` array, and calling each transaction's display method.
+- `statement` returns the header concatenated with the `statementRows` joined with newline characters.
+
+Green.
 
 <!-- Links -->
 
