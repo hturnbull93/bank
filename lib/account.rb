@@ -4,10 +4,12 @@ require_relative './transaction.rb'
 
 class Account
   STATEMENT_HEADER = "date || credit || debit || balance\n"
+  STARTING_BALANCE = 0
+
   attr_reader :balance
 
   def initialize(transaction_class = Transaction)
-    @balance = 0
+    @balance = STARTING_BALANCE
     @transaction_class = transaction_class
     @history = []
   end
