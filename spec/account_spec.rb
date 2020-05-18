@@ -3,41 +3,32 @@
 require 'account'
 
 describe Account do
-  it 'is initialised with a balance of 0' do
-    expect(subject.balance).to eq 0
-  end
-
   describe '.deposit' do
     it 'depositing 100 results in balance of 100' do
-      subject.deposit(100)
-      expect(subject.balance).to eq 100
+      expect(subject.deposit(100)).to eq '100.00 deposited. Current balance: 100.00'
     end
-
+    
     it 'depositing 200 results in balance of 200' do
-      subject.deposit(200)
-      expect(subject.balance).to eq 200
+      expect(subject.deposit(200)).to eq '200.00 deposited. Current balance: 200.00'
     end
-
+    
     it 'depositing 100 then 300 results in balance of 400' do
       subject.deposit(100)
-      subject.deposit(300)
-      expect(subject.balance).to eq 400
+      expect(subject.deposit(300)).to eq '300.00 deposited. Current balance: 400.00'
     end
   end
-
+  
   describe '.withdraw (with 1000 deposited first)' do
     before(:each) do
       subject.deposit(1000)
     end
-
+    
     it 'withdrawing 100 results in a balance of 900' do
-      subject.withdraw(100)
-      expect(subject.balance).to eq 900
+      expect(subject.withdraw(100)).to eq '100.00 withdrawn. Current balance: 900.00'
     end
-
+    
     it 'withdrawing 200 results in a balance of 800' do
-      subject.withdraw(200)
-      expect(subject.balance).to eq 800
+      expect(subject.withdraw(200)).to eq '200.00 withdrawn. Current balance: 800.00'
     end
 
     it 'withdrawing 1500 throws Insuficcient funds' do
