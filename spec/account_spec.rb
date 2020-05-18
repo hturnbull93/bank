@@ -53,4 +53,13 @@ describe Account do
       subject.withdraw(100)
     end
   end
+
+  it '.statement uses printer class' do
+    printer = double(:printer)
+    printer_class = double(:printer_class, new: printer)
+    subject = described_class.new(printer_class: printer_class)
+
+    expect(printer).to receive(:print).twice
+    subject.statement
+  end
 end

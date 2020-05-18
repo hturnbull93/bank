@@ -26,6 +26,7 @@ It allows you to create an account, deposit funds into it, withdraw funds from i
     - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
     - [Pretty Print Statement](#pretty-print-statement)
     - [Extracting a Printer Class](#extracting-a-printer-class)
+    - [Refactoring To Use Pence](#refactoring-to-use-pence)
 
 ## Spec
 
@@ -445,9 +446,15 @@ Wrote test for the print method, passing an array prints each element on a new l
 
 Refactored to use a ternary operator.
 
+Wrote test that `statement` uses printer class.
+
 - Injected the new Printer class into the Account class with keyword argument to `initialize`.
 - `@printer` is assigned with a new instance of the injected printer.
-- Reworked `statement` to print using `@printer.print`
+- Reworked `statement` to print using `@printer.print`.
+
+### Refactoring To Use Pence
+
+
 
 <!-- Links -->
 
