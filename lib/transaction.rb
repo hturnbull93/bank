@@ -7,21 +7,13 @@ class Transaction
   end
 
   def display
-    "#{formatTime} || #{creditFormat}|| #{debitFormat}|| #{@balance}"
+    "#{formatTime} || #{format(@credit)}|| #{format(@debit)}|| #{@balance}"
   end
 
   private
 
-  def creditFormat
-    if @credit
-      "#{@credit} "
-    end
-  end
-
-  def debitFormat
-    if @debit
-      "#{@debit} "
-    end
+  def format(item)
+    "#{item} " if item
   end
 
   def formatTime

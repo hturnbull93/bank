@@ -220,6 +220,8 @@ Test for display method to return a string in the format of a transaction row on
 - Transaction initialise takes another keyword argument balance defaulting to nil, used to set balance instance variable.
 - display method interpolates balance in last column (no need for formatting helper here as it is the last column).
 
+Refactored the very similar creditFormat and debitFormat methods into a general method format that can accept either as an argument. the format method also uses a guard clause rather than an if block for brevity
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
