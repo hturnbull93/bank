@@ -294,6 +294,12 @@ In order to satisfy the feature test with the statement:
 
 Green.
 
+Refactors:
+
+- Extracted helper method `addDepositTransaction` and `addWithdrawTransaction` from deposit and withdraw taking the same keyword arguments as the `new` method call they used before.
+- Extracted constant `STATEMENT_HEADER` from the `statement` method.
+- Used `&:display` in the statement map to proc the display method on the element rather than using a full map block.
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md

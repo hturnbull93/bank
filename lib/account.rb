@@ -3,6 +3,7 @@
 require_relative './transaction.rb'
 
 class Account
+  STATEMENT_HEADER = "date || credit || debit || balance\n"
   attr_reader :balance
 
   def initialize(transactionClass = Transaction)
@@ -24,10 +25,8 @@ class Account
   end
 
   def statement
-    header = "date || credit || debit || balance\n"
     statementRows = @transactionHistory.map(&:display)
-
-    header + statementRows.join("\n")
+    STATEMENT_HEADER + statementRows.join("\n")
   end
 
   def addDepositTransaction(credit: nil, balance: nil)
