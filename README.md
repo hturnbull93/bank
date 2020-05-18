@@ -34,12 +34,69 @@ CRC modelling:
 
 ![CRC Model](images/Band-REPL-CRC.png)
 
+### User Stories
+
+- [ ] 1
+
+> As a Bank Manager,  
+> So that we only take customers money,  
+> I want accounts to start with balance 0
+
+- [ ] 2
+
+> As a Customer,  
+> So I can keep my money safe,  
+> I want to be able to deposit into my account
+
+- [ ] 3
+
+> As a Customer,  
+> So I can spend my money,  
+> I want to be able to withdraw from my account
+
+- [ ] 3.1
+
+> As a Bank Manager,  
+> So we don't go out of pocket,  
+> I want withdrawals to only be allowed to occur if the customer has sufficient funds
+
+- [ ] 4
+
+> As a Customer,  
+> So I can keep on top of my finances,  
+> I want to be able to print my account statement
+
+- [ ] 4.1
+
+> As a Customer,  
+> So I know when each transaction happened,  
+> I want transactions on my statement to have the date
+
+- [ ] 4.2
+
+> As a Customer,  
+> So I know how much each deposit was,  
+> I want deposits on my statement to have the credit amount.
+
+- [ ] 4.3
+
+> As a Customer,  
+> So I know how much each withdrawal was,  
+> I want withdrawals on my statement to have the debit amount.
+
+- [ ] 4.4
+
+> As a Customer,  
+> Because more recent transactions are more important to me,  
+> I want the statement transactions to be ordered from newest to oldest.
 
 ### Set up
 
 Initialised with Bundler, and added RSpec to the Gemfile in test/dev groups, then bundled to install.
 
 Initialised RSpec.
+
+### User Story 1
 
 <!-- Links -->
 
