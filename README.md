@@ -120,13 +120,19 @@ In `lib/account.rb`:
 
 Test for Account for a deposit method taking 100 results in a balance of 100. Red.
 
-- Added deposit method with amount as param, sets balance to 100.
+- Added deposit method with amount as param, sets balance to 100 hardcoded.
 
 Green.
 
 Test for Account for a deposit method taking 200 results in a balance of 200. Red.
 
+- deposit method sets balance to the amount passed.
 
+Green.
+
+Test for Account for two deposits, one of 100 and another of 300, results in balance of 400.
+
+- deposit method uses `+=` instead of just assigning balance with amount
 
 <!-- Links -->
 
