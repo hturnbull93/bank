@@ -6,8 +6,6 @@ class Account
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   STARTING_BALANCE = 0
 
-  attr_reader :balance
-
   def initialize(transaction_class = Transaction)
     @balance = STARTING_BALANCE
     @transaction_class = transaction_class
@@ -17,15 +15,15 @@ class Account
   def deposit(amount)
     @balance += amount
     add_deposit(credit: amount, balance: @balance)
-    "#{amount} deposited"
+    "#{amount}.00 deposited. Current balance: #{@balance}.00"
   end
   
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
-
+    
     @balance -= amount
     add_withrawal(debit: amount, balance: @balance)
-    "#{amount} withdrawn"
+    "#{amount}.00 withdrawn. Current balance: #{@balance}.00"
   end
 
   def statement

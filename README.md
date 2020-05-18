@@ -362,6 +362,20 @@ Based on Rubocop suggestions:
 
 - Renamed several variable and method names to snake_case convention (been doing too much JavaSript it seems).
 - Excluded spec files in `.rubocop.yml` as these tend to have large blocks and long lines (e.g. the result of the feature tests.)
+- Account `initialise` method sets `@balance` with new constant `STARTING_BALANCE` as 0.
+
+### Pretty Deposit & Withdraw Returns
+
+I realised I was testing state of `@balance` rather than behaviour.
+
+Reworked tests to check for a returned string with the amount deposited/withdrawn and the resulting balance. Red.
+
+- Added to `deposit` and `withdraw` a string interpolating the amount deposited or withdrawn and new balance.
+- Removed `attr_reader` for `@balance` as it is no longer needed.
+
+Green.
+
+### Pretty Print Statement
 
 <!-- Links -->
 
