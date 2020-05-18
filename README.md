@@ -300,6 +300,10 @@ Refactors:
 - Extracted constant `STATEMENT_HEADER` from the `statement` method.
 - Used `&:display` in the statement map to proc the display method on the element rather than using a full map block.
 
+### Clean Up
+
+Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never).
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
