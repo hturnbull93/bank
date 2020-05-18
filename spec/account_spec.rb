@@ -46,19 +46,19 @@ describe Account do
   end
 
   describe 'uses Transaction class' do
-    let(:mockTransaction) { double(:transaction, display: 'Mocked display row') }
-    let(:mockTransactionClass) { double(:transactionClass, new: mockTransaction) }
+    let(:transaction) { double(:transaction) }
+    let(:transaction_class) { double(:transaction_class, new: transaction) }
 
-    subject { Account.new(mockTransactionClass) }
+    subject { Account.new(transaction_class) }
 
-    it 'deposit calls for a new transaction with the credit amount and resulting balance' do
-      expect(mockTransactionClass).to receive(:new).with(credit: 100, balance: 100)
+    it 'deposit calls for a new transaction with the credit amount and balance' do
+      expect(transaction_class).to receive(:new).with(credit: 100, balance: 100)
       subject.deposit(100)
     end
 
-    it 'withdraw calls for a new transaction with the debit amount and resulting balance' do
+    it 'withdraw calls for a new transaction with the debit amount and balance' do
       subject.deposit(1000)
-      expect(mockTransactionClass).to receive(:new).with(debit: 100, balance: 900)
+      expect(transaction_class).to receive(:new).with(debit: 100, balance: 900)
       subject.withdraw(100)
     end
   end
