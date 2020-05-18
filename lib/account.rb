@@ -6,7 +6,7 @@ class Account
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   STARTING_BALANCE = 0
 
-  def initialize(transaction_class = Transaction)
+  def initialize(transaction_class: Transaction)
     @balance = STARTING_BALANCE
     @transaction_class = transaction_class
     @transaction_history = []
