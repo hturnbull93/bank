@@ -38,6 +38,18 @@ This is a small project to practice maintaining code quality and process. [Sourc
 | account.withdraw(n) | withdraw n from your account where x is an integer |
 | p account.statement | prints a statement of all transactions so far      |
 
+## Gems
+
+This project has no production dependencies.
+
+Testing and Development gems are:
+
+| Gem               | Description                                       |
+| ----------------- | ------------------------------------------------- |
+| rspec             | Testing framework                                 |
+| simplecov         | Measures test coverage                            |
+| simplecov-console | Displays measured test coverage when rspec is run |
+
 ## Spec
 
 ### Requirements
