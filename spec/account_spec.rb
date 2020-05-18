@@ -39,7 +39,7 @@ describe Account do
     end
 
     it 'withdrawing 1500 throws Insuficcient funds' do
-      expect { subject.withdraw(1500) }.to raise_error("Insuficcient funds")
+      expect { subject.withdraw(1500) }.to raise_error('Insufficient funds')
     end
   end
 end
