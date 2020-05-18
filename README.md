@@ -42,7 +42,7 @@ CRC modelling:
 > So that we only take customers money,  
 > I want accounts to start with balance 0
 
-- [ ] 2
+- [x] 2
 
 > As a Customer,  
 > So I can keep my money safe,  
@@ -112,7 +112,7 @@ In `lib/account.rb`:
 
 ### Deposits
 
-- [ ] 2
+- [x] 2
 
 > As a Customer,  
 > So I can keep my money safe,  
@@ -133,6 +133,19 @@ Green.
 Test for Account for two deposits, one of 100 and another of 300, results in balance of 400.
 
 - deposit method uses `+=` instead of just assigning balance with amount
+
+### Withdrawals
+
+- [ ] 3
+
+> As a Customer,  
+> So I can spend my money,  
+> I want to be able to withdraw from my account
+
+Test for Account for a withdraw method. In the describe block added a before block to deposit 1000, so there is something to withdraw. Test for withdraw 100 results in a balance of 900. Red.
+
+- added
+
 
 <!-- Links -->
 

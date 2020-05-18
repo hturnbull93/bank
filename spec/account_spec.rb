@@ -20,4 +20,15 @@ describe Account do
       expect(subject.balance).to eq 400
     end
   end
+
+  describe '.withdraw (with 1000 deposited first)' do
+    before(:each) do
+      subject.deposit(1000)
+    end
+
+    it 'passing 100 results in a balance of 900' do
+      subject.withdraw(100)
+      expect(subject.balance).to eq 900
+    end
+  end
 end
