@@ -1,8 +1,6 @@
 # Bank
 
-This is a small project to practice maintaining code quality and process.
-
-[Source]
+This is a small project to practice maintaining code quality and process. [Source]
 
 ## Spec
 
@@ -30,10 +28,20 @@ date       || credit  || debit  || balance
 
 ## Development Journal
 
-### Approach
+### Domain Modelling
 
-I will approach this using Ruby.
+Object Method table
+
+| Object  | Method           |
+| ------- | ---------------- |
+| Account | deposit(amount)  |
+|         | withdraw(amount) |
+|         | statement        |
+
+### Set up
+
+Initialised with Bundler, and added RSpec to the Gemfile in test/dev groups, then bundled to install.
 
 <!-- Links -->
 
-[Source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
+[source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
