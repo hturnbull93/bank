@@ -156,7 +156,7 @@ Green.
 
 Test for withdraw 1500 results in error: Insufficient funds.
 
-
+- within withdraw, if balance is less than amount raise 'Insufficient funds'
 
 <!-- Links -->
 
