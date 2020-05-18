@@ -19,19 +19,18 @@ describe Account do
   end
   
   describe '.withdraw (with 1000 deposited first)' do
-    before(:each) do
-      subject.deposit(1000)
-    end
-    
     it 'withdrawing 100 results in a balance of 900' do
+      subject.deposit(1000)
       expect(subject.withdraw(100)).to eq '100.00 withdrawn. Current balance: 900.00'
     end
     
     it 'withdrawing 200 results in a balance of 800' do
+      subject.deposit(1000)
       expect(subject.withdraw(200)).to eq '200.00 withdrawn. Current balance: 800.00'
     end
     
     it 'withdrawing 1500 throws Insuficcient funds' do
+      subject.deposit(1000)
       expect(subject.withdraw(1500)).to eq 'Insufficient funds'
     end
   end
