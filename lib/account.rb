@@ -2,8 +2,11 @@
 
 require_relative './transaction.rb'
 require_relative './printer.rb'
+require_relative './conversion.rb'
 
 class Account
+  include Conversion
+
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   STARTING_BALANCE = 0
 
@@ -15,17 +18,19 @@ class Account
   end
 
   def deposit(amount)
-    @balance += amount
-    add_deposit(credit: amount, balance: @balance)
-    "#{amount}.00 deposited. Current balance: #{@balance}.00"
+    pence = to_pence(amount)
+    @balance += pence
+    add_deposit(credit: pence, balance: @balance)
+    "#{as_pounds(pence)} deposited. Current balance: #{as_pounds(@balance)}"
   end
 
   def withdraw(amount)
-    return 'Insufficient funds' if @balance < amount
+    pence = to_pence(amount)
+    return 'Insufficient funds' if @balance < pence
 
-    @balance -= amount
-    add_withrawal(debit: amount, balance: @balance)
-    "#{amount}.00 withdrawn. Current balance: #{@balance}.00"
+    @balance -= pence
+    add_withrawal(debit: pence, balance: @balance)
+    "#{as_pounds(pence)} withdrawn. Current balance: #{as_pounds(@balance)}"
   end
 
   def statement
