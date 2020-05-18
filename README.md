@@ -40,7 +40,7 @@ This is a small project to practice maintaining code quality and process. [Sourc
 
 You should see somthing similar to the below in your terminal:
 
-![Screen preview](images/screen-preview.png)
+![Screen preview](images/bank-screen-preview.png)
 
 ## Gems
 
