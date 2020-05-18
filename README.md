@@ -80,11 +80,11 @@ date || credit || debit || balance
 
 5. Use your account with the following methods
 
-| Method              | Description                                        |
-| ------------------- | -------------------------------------------------- |
-| account.deposit(n)  | deposit n into your account where x is an integer  |
-| account.withdraw(n) | withdraw n from your account where x is an integer |
-| p account.statement | prints a statement of all transactions so far      |
+| Method                   | Description                                             |
+| ------------------------ | ------------------------------------------------------- |
+| account.deposit(number)  | deposit however much you want into your account where  |
+| account.withdraw(number) | withdraw however much you want from your account where |
+| p account.statement      | prints a statement of all transactions so far           |
 
 You should see something similar to the below in your terminal:
 
