@@ -17,13 +17,15 @@ class Account
   def deposit(amount)
     @balance += amount
     add_deposit(credit: amount, balance: @balance)
+    "#{amount} deposited"
   end
-
+  
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
 
     @balance -= amount
     add_withrawal(debit: amount, balance: @balance)
+    "#{amount} withdrawn"
   end
 
   def statement
