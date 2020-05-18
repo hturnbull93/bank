@@ -15,6 +15,7 @@ This is a small project to practice maintaining code quality and process. [Sourc
 
    ```shell
    rspec
+   rubocop
    ```
 
 4. Launch IRB:
@@ -51,6 +52,7 @@ Testing and Development gems are:
 | Gem               | Description                                       |
 | ----------------- | ------------------------------------------------- |
 | rspec             | Testing framework                                 |
+| rubocop           | Linter, checks for code quality and conventions   |
 | simplecov         | Measures test coverage                            |
 | simplecov-console | Displays measured test coverage when rspec is run |
 
@@ -356,7 +358,7 @@ Refactors:
 
 Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`.
 
-Linting all files with Rubocop led to minor formatting fixed.
+Linting all files with Rubocop led to minor formatting fixed (also added Rubocop to gems so anyone can run these tests).
 
 Based on Rubocop suggestions:
 
