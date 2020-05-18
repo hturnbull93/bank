@@ -30,13 +30,10 @@ date       || credit  || debit  || balance
 
 ### Domain Modelling
 
-Object Method table
+CRC modelling:
 
-| Object  | Method           |
-| ------- | ---------------- |
-| Account | deposit(amount)  |
-|         | withdraw(amount) |
-|         | statement        |
+![CRC Model](images/Band-REPL-CRC.png)
+
 
 ### Set up
 
