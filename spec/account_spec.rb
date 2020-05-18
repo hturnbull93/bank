@@ -55,5 +55,11 @@ describe Account do
       expect(mockTransactionClass).to receive(:new).with(credit: 100, balance: 100)
       subject.deposit(100)
     end
+
+    it 'withdraw calls for a new transaction with the debit amount and resulting balance' do
+      subject.deposit(1000)
+      expect(mockTransactionClass).to receive(:new).with(debit: 100, balance: 900)
+      subject.withdraw(100)
+    end
   end
 end
