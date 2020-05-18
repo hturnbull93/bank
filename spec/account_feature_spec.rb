@@ -21,7 +21,7 @@ describe 'Account Feature Test' do
 
     statement = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00 \n13/01/2012 || 2000.00 || || 3000.00 \n10/01/2012 || 1000.00 || || 1000.00 "
 
-    expect(subject.statement).to eq statement
+    expect{ subject.statement }.to output(/#{statement}/m).to_stdout
   end
 
   it 'deposit 2000, 3000 then withdraw 1500' do
@@ -42,6 +42,6 @@ describe 'Account Feature Test' do
 
     statement = "date || credit || debit || balance\n14/01/2012 || || 1500.00 || 3500.00 \n13/01/2012 || 3000.00 || || 5000.00 \n10/01/2012 || 2000.00 || || 2000.00 "
 
-    expect(subject.statement).to eq statement
+    expect{ subject.statement }.to output(/#{statement}/m).to_stdout
   end
 end
