@@ -30,17 +30,19 @@ class Account
 
   def statement
     statement_rows = @transaction_history.map(&:display)
-    @printer.print STATEMENT_HEADER 
+    @printer.print STATEMENT_HEADER
     @printer.print statement_rows
   end
 
   private
 
   def add_deposit(credit: nil, balance: nil)
-    @transaction_history.unshift @transaction_class.new(credit: credit, balance: balance)
+    deposit = @transaction_class.new(credit: credit, balance: balance)
+    @transaction_history.unshift deposit
   end
 
   def add_withrawal(debit: nil, balance: nil)
-    @transaction_history.unshift @transaction_class.new(debit: debit, balance: balance)
+    withdrawal = @transaction_class.new(debit: debit, balance: balance)
+    @transaction_history.unshift withdrawal
   end
 end
