@@ -36,7 +36,7 @@ CRC modelling:
 
 ### User Stories
 
-- [ ] 1
+- [x] 1
 
 > As a Bank Manager,  
 > So that we only take customers money,  
@@ -98,17 +98,28 @@ Initialised RSpec.
 
 ### Accounts
 
-- [ ] 1
+- [x] 1
 
 > As a Bank Manager,  
 > So that we only take customers money,  
 > I want accounts to start with balance 0
 
-In `spec/account_spec.rb` wrote a tests for an Account class that is initialised with a balance of 0. Red.
+In `spec/account_spec.rb` wrote a test for an Account class that is initialised with a balance of 0. Red.
 
 In `lib/account.rb`:
 
 Added class Account with initialize method setting balance attribute with 0, exposed as readable.
+
+### Deposits
+
+- [ ] 2
+
+> As a Customer,  
+> So I can keep my money safe,  
+> I want to be able to deposit into my account
+
+Test for Account for a deposit method taking 100 results in a balance of 100. Red.
+
 
 <!-- Links -->
 
