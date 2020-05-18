@@ -14,5 +14,10 @@ describe Account do
       subject.deposit(200)
       expect(subject.balance).to eq 200
     end
+    it 'passing 100 then 300 results in balance of 400' do
+      subject.deposit(100)
+      subject.deposit(300)
+      expect(subject.balance).to eq 400
+    end
   end
 end
