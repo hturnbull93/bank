@@ -185,6 +185,12 @@ Green.
 
 Wrote another feature test with different figures. Red.
 
+For this I think I should implement the Transaction class.
+
+### Transactions
+
+In `spec/transaction_spec.rb` added a test for Transaction class, it's display method returns a string in the format of a transaction row on a statement, with the time in the first column. Red.
+
 
 
 <!-- Links -->
