@@ -9,7 +9,7 @@ class Account
   def initialize(transaction_class = Transaction)
     @balance = STARTING_BALANCE
     @transaction_class = transaction_class
-    @history = []
+    @transaction_history = []
   end
 
   def deposit(amount)
@@ -27,17 +27,17 @@ class Account
   end
 
   def statement
-    statement_rows = @history.map(&:display)
+    statement_rows = @transaction_history.map(&:display)
     puts STATEMENT_HEADER + statement_rows.join("\n")
   end
 
   private
 
   def add_deposit(credit: nil, balance: nil)
-    @history.unshift @transaction_class.new(credit: credit, balance: balance)
+    @transaction_history.unshift @transaction_class.new(credit: credit, balance: balance)
   end
 
   def add_withrawal(debit: nil, balance: nil)
-    @history.unshift @transaction_class.new(debit: debit, balance: balance)
+    @transaction_history.unshift @transaction_class.new(debit: debit, balance: balance)
   end
 end
