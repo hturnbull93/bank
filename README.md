@@ -106,7 +106,9 @@ Initialised RSpec.
 
 In `spec/account_spec.rb` wrote a tests for an Account class that is initialised with a balance of 0. Red.
 
+In `lib/account.rb`:
 
+Added class Account with initialize method setting balance attribute with 0, exposed as readable.
 
 <!-- Links -->
 
