@@ -108,7 +108,7 @@ In `spec/account_spec.rb` wrote a test for an Account class that is initialised 
 
 In `lib/account.rb`:
 
-Added class Account with initialize method setting balance attribute with 0, exposed as readable.
+- Added class Account with initialize method setting balance attribute with 0, exposed as readable.
 
 ### Deposits
 
@@ -119,6 +119,10 @@ Added class Account with initialize method setting balance attribute with 0, exp
 > I want to be able to deposit into my account
 
 Test for Account for a deposit method taking 100 results in a balance of 100. Red.
+
+- Added deposit method with amount as param, sets balance to 100.
+
+Green.
 
 
 <!-- Links -->
