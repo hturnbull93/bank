@@ -2,6 +2,42 @@
 
 This is a small project to practice maintaining code quality and process. [Source]
 
+## Quick Start
+
+1. Clone this repo.
+2. Install dependencies with:
+
+   ```shell
+   bundle
+   ```
+
+3. Run test suite with:
+
+   ```shell
+   rspec
+   ```
+
+4. Launch IRB:
+
+   ```shell
+   irb
+   ```
+
+   Once in IRB.
+
+   ```irb
+   require './lib/account.rb'
+   account = Account.new
+   ```
+
+5. Use your account with the following methods
+
+| Method              | Description                                        |
+| ------------------- | -------------------------------------------------- |
+| account.deposit(n)  | deposit n into your account where x is an integer  |
+| account.withdraw(n) | withdraw n from your account where x is an integer |
+| p account.statement | prints a statement of all transactions so far      |
+
 ## Spec
 
 ### Requirements
@@ -302,7 +338,7 @@ Refactors:
 
 ### Clean Up
 
-Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`
+Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`.
 
 <!-- Links -->
 
