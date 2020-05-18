@@ -27,8 +27,10 @@ class Account
   end
 
   def statement
-    statement_rows = @history.map(&:display)
-    STATEMENT_HEADER + statement_rows.join("\n")
+    statement_rows = @history.map do |transaction|
+      transaction.display
+    end
+    puts STATEMENT_HEADER + statement_rows.join("\n")
   end
 
   private
