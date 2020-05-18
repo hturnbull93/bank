@@ -352,7 +352,12 @@ Refactors:
 
 Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`.
 
-Linted all files with Rubocop.
+Linting all files with Rubocop led to minor formatting fixed.
+
+Based on Rubocop suggestions:
+
+- Renamed several variable and method names to snake_case convention (been doing too much JavaSript it seems).
+- Excluded spec files in `.rubocop.yml` as these tend to have large blocks and long lines (e.g. the result of the feature tests.)
 
 <!-- Links -->
 
