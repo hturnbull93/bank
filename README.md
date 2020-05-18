@@ -1,34 +1,32 @@
 <!-- omit in toc -->
-
 # Bank
 
 This is a small project to practice maintaining code quality and process. [Source]
 
 It allows you to create an account, deposit funds into it, withdraw funds from it, and get statements.
 
-- [Bank](#bank)
-  - [Spec](#spec)
-    - [Requirements](#requirements)
-    - [Acceptance criteria](#acceptance-criteria)
-  - [Quick Start](#quick-start)
-  - [Screen Preview](#screen-preview)
-  - [Gems](#gems)
-    - [Rubocop Configuration](#rubocop-configuration)
-  - [Development Journal](#development-journal)
-    - [Domain Modelling](#domain-modelling)
-    - [User Stories](#user-stories)
-    - [Set up](#set-up)
-    - [Accounts](#accounts)
-    - [Deposits](#deposits)
-    - [Withdrawals](#withdrawals)
-    - [Statement](#statement)
-    - [Transactions](#transactions)
-    - [Back to Account Statement](#back-to-account-statement)
-    - [Simplecov and Rubocop](#simplecov-and-rubocop)
-    - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
-    - [Pretty Print Statement](#pretty-print-statement)
-    - [Extracting a Printer Class](#extracting-a-printer-class)
-    - [Refactoring To Use Pence](#refactoring-to-use-pence)
+- [Spec](#spec)
+  - [Requirements](#requirements)
+  - [Acceptance criteria](#acceptance-criteria)
+- [Quick Start](#quick-start)
+- [Screen Preview](#screen-preview)
+- [Gems](#gems)
+  - [Rubocop Configuration](#rubocop-configuration)
+- [Development Journal](#development-journal)
+  - [Domain Modelling](#domain-modelling)
+  - [User Stories](#user-stories)
+  - [Set up](#set-up)
+  - [Accounts](#accounts)
+  - [Deposits](#deposits)
+  - [Withdrawals](#withdrawals)
+  - [Statement](#statement)
+  - [Transactions](#transactions)
+  - [Back to Account Statement](#back-to-account-statement)
+  - [Simplecov and Rubocop](#simplecov-and-rubocop)
+  - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
+  - [Pretty Print Statement](#pretty-print-statement)
+  - [Extracting a Printer Class](#extracting-a-printer-class)
+  - [Refactoring To Use Pence](#refactoring-to-use-pence)
 
 ## Spec
 
