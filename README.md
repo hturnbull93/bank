@@ -435,6 +435,11 @@ Green.
 
 Wrote test for the print method, passing "Hi There" prints "Hi There" to stdout with a newline. Red.
 
+- `print` puts what you pass in as argument.
+
+Green.
+
+
 
 <!-- Links -->
 

@@ -1,5 +1,5 @@
 class Printer
   def print(item)
-    puts 'Hello World'
+    puts item
   end
 end
