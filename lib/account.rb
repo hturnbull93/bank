@@ -17,19 +17,17 @@ class Account
     add_deposit(credit: amount, balance: @balance)
     "#{amount}.00 deposited. Current balance: #{@balance}.00"
   end
-  
+
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
-    
+
     @balance -= amount
     add_withrawal(debit: amount, balance: @balance)
     "#{amount}.00 withdrawn. Current balance: #{@balance}.00"
   end
 
   def statement
-    statement_rows = @history.map do |transaction|
-      transaction.display
-    end
+    statement_rows = @history.map(&:display)
     puts STATEMENT_HEADER + statement_rows.join("\n")
   end
 
