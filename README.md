@@ -179,6 +179,13 @@ Refactored to guard clause from if block.
 In `spec/account_feature_spec.rb` wrote a feature test based on the above acceptance criteria. Red.
 
 - Added statement method to account.
+- Hardcoded the response based on the expected statement.
+
+Green.
+
+Wrote another feature test with different figures. Red.
+
+
 
 <!-- Links -->
 
