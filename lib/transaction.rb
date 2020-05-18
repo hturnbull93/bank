@@ -9,7 +9,7 @@ class Transaction
   end
 
   def display
-    "#{formatTime} || #{format(@credit)}|| #{format(@debit)}|| #{format(@balance)}"
+    "#{time} || #{format(@credit)}|| #{format(@debit)}|| #{format(@balance)}"
   end
 
   private
@@ -18,7 +18,7 @@ class Transaction
     "#{item}.00 " if item
   end
 
-  def formatTime
+  def time
     @time.strftime('%d/%m/%Y')
   end
 end
