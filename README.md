@@ -1,3 +1,5 @@
+<!-- omit in toc -->
+
 # Bank
 
 This is a small project to practice maintaining code quality and process. [Source]
@@ -22,7 +24,7 @@ It allows you to create an account, deposit funds into it, withdraw funds from i
     - [Statement](#statement)
     - [Transactions](#transactions)
     - [Back to Account Statement](#back-to-account-statement)
-    - [Clean Up](#clean-up)
+    - [Simplecov and Rubocop](#simplecov-and-rubocop)
     - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
     - [Pretty Print Statement](#pretty-print-statement)
     - [Extracting a Printer Class](#extracting-a-printer-class)
@@ -39,10 +41,10 @@ It allows you to create an account, deposit funds into it, withdraw funds from i
 
 ### Acceptance criteria
 
-**Given** a client makes a deposit of 1000 on 10-01-2012
-**And** a deposit of 2000 on 13-01-2012
-**And** a withdrawal of 500 on 14-01-2012
-**When** she prints her bank statement
+**Given** a client makes a deposit of 1000 on 10-01-2012  
+**And** a deposit of 2000 on 13-01-2012  
+**And** a withdrawal of 500 on 14-01-2012  
+**When** she prints her bank statement  
 **Then** she would see:
 
 ```irb
@@ -82,11 +84,11 @@ date || credit || debit || balance
 
 5. Use your account with the following methods
 
-| Method                   | Description                                             |
-| ------------------------ | ------------------------------------------------------- |
-| account.deposit(number)  | deposit however much you want into your account where  |
-| account.withdraw(number) | withdraw however much you want from your account where |
-| p account.statement      | prints a statement of all transactions so far           |
+| Method                     | Description                                      |
+| -------------------------- | ------------------------------------------------ |
+| `account.deposit(number)`  | deposit however much you want into your account  |
+| `account.withdraw(number)` | withdraw however much you want from your account |
+| `account.statement`        | prints a statement of all transactions so far    |
 
 You should see something similar to the below in your terminal:
 
@@ -263,6 +265,8 @@ Green.
 
 Refactored to guard clause from if block.
 
+_Later refactored to simply return a string 'Insufficient funds', rather than raising a runtime error._
+
 ### Statement
 
 - [x] 4
@@ -389,7 +393,7 @@ Refactors:
 - Extracted constant `STATEMENT_HEADER` from the `statement` method.
 - Used `&:display` in the statement map to proc the display method on the element rather than using a full map block.
 
-### Clean Up
+### Simplecov and Rubocop
 
 Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`.
 
@@ -399,6 +403,9 @@ Based on Rubocop suggestions:
 
 - Renamed several variable and method names to snake_case convention (been doing too much JavaSript it seems).
 - Excluded spec files in `.rubocop.yml` as these tend to have large blocks and long lines (e.g. the result of the feature tests.)
+
+Also:
+
 - Account `initialise` method sets `@balance` with new constant `STARTING_BALANCE` as 0.
 
 ### Pretty Deposit & Withdraw Returns
