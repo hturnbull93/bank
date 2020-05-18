@@ -25,6 +25,7 @@ It allows you to create an account, deposit funds into it, withdraw funds from i
     - [Clean Up](#clean-up)
     - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
     - [Pretty Print Statement](#pretty-print-statement)
+    - [Extracting a Printer Class](#extracting-a-printer-class)
 
 ## Spec
 
@@ -417,6 +418,23 @@ Adjusted the feature tests to check for output to standard out rather than just 
 Added a puts to the `statement` so the result is printed out properly, rather than returning a poorly formatted string.
 
 Green.
+
+### Extracting a Printer Class
+
+It was pointed out to me that there could be a printer class.
+
+In `spec/printer_spec.rb`:
+
+Wrote test for a print method, passing "Hello World" prints "Hello World" to stdout with a newline. Red.
+
+In `lib/printer.rb`:
+
+- Added a Printer class with method `print` that puts "Hello World"
+
+Green.
+
+Wrote test for the print method, passing "Hi There" prints "Hi There" to stdout with a newline. Red.
+
 
 <!-- Links -->
 
