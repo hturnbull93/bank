@@ -11,11 +11,10 @@ This is a small project to practice maintaining code quality and process. [Sourc
    bundle
    ```
 
-3. Run test suite with:
+3. Run test suites with:
 
    ```shell
-   rspec
-   rubocop
+   rspec && rubocop
    ```
 
 4. Launch IRB:
