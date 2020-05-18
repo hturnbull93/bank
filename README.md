@@ -42,6 +42,8 @@ Object Method table
 
 Initialised with Bundler, and added RSpec to the Gemfile in test/dev groups, then bundled to install.
 
+Initialised RSpec.
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
