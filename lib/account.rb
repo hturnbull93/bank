@@ -6,36 +6,36 @@ class Account
   STATEMENT_HEADER = "date || credit || debit || balance\n"
   attr_reader :balance
 
-  def initialize(transactionClass = Transaction)
+  def initialize(transaction_class = Transaction)
     @balance = 0
-    @transactionClass = transactionClass
-    @transactionHistory = []
+    @transaction_class = transaction_class
+    @history = []
   end
 
   def deposit(amount)
     @balance += amount
-    addDepositTransaction(credit: amount, balance: @balance)
+    add_deposit(credit: amount, balance: @balance)
   end
 
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
 
     @balance -= amount
-    addWithdrawTransaction(debit: amount, balance: @balance)
+    add_withrawal(debit: amount, balance: @balance)
   end
 
   def statement
-    statementRows = @transactionHistory.map(&:display)
-    STATEMENT_HEADER + statementRows.join("\n")
+    statement_rows = @history.map(&:display)
+    STATEMENT_HEADER + statement_rows.join("\n")
   end
 
   private
 
-  def addDepositTransaction(credit: nil, balance: nil)
-    @transactionHistory.unshift @transactionClass.new(credit: credit, balance: balance)
+  def add_deposit(credit: nil, balance: nil)
+    @history.unshift @transaction_class.new(credit: credit, balance: balance)
   end
 
-  def addWithdrawTransaction(debit: nil, balance: nil)
-    @transactionHistory.unshift @transactionClass.new(debit: debit, balance: balance)
+  def add_withrawal(debit: nil, balance: nil)
+    @history.unshift @transaction_class.new(debit: debit, balance: balance)
   end
 end
