@@ -19,7 +19,7 @@ class Account
   end
 
   def withdraw(amount)
-    raise 'Insufficient funds' if @balance < amount
+    return 'Insufficient funds' if @balance < amount
 
     @balance -= amount
     add_withrawal(debit: amount, balance: @balance)
