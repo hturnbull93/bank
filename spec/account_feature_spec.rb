@@ -19,9 +19,15 @@ describe 'Account Feature Test' do
     allow(Time).to receive(:now).and_return(time_three)
     subject.withdraw(500)
 
-    statement = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00 \n13/01/2012 || 2000.00 || || 3000.00 \n10/01/2012 || 1000.00 || || 1000.00 "
+    statement_header  = "date || credit || debit || balance "
+    transaction_one   = /14\/01\/2012 \|\| \|\| 500.00 \|\| 2500.00 /
+    transaction_two   = /13\/01\/2012 \|\| 2000.00 \|\| \|\| 3000.00 /
+    transaction_three = /10\/01\/2012 \|\| 1000.00 \|\| \|\| 1000.00 /
 
-    expect{ subject.statement }.to output(/#{statement}/m).to_stdout
+    expect{ subject.statement }.to output(/#{statement_header}/m).to_stdout
+    expect{ subject.statement }.to output(transaction_one).to_stdout
+    expect{ subject.statement }.to output(transaction_two).to_stdout
+    expect{ subject.statement }.to output(transaction_three).to_stdout
   end
 
   it 'deposit 2000, 3000 then withdraw 1500' do
@@ -40,8 +46,14 @@ describe 'Account Feature Test' do
     allow(Time).to receive(:now).and_return(time_three)
     subject.withdraw(1500)
 
-    statement = "date || credit || debit || balance\n14/01/2012 || || 1500.00 || 3500.00 \n13/01/2012 || 3000.00 || || 5000.00 \n10/01/2012 || 2000.00 || || 2000.00 "
+    statement_header  = "date || credit || debit || balance "
+    transaction_one   = /14\/01\/2012 \|\| \|\| 1500.00 \|\| 3500.00 /
+    transaction_two   = /13\/01\/2012 \|\| 3000.00 \|\| \|\| 5000.00 /
+    transaction_three = /10\/01\/2012 \|\| 2000.00 \|\| \|\| 2000.00 /
 
-    expect{ subject.statement }.to output(/#{statement}/m).to_stdout
+    expect{ subject.statement }.to output(/#{statement_header}/m).to_stdout
+    expect{ subject.statement }.to output(transaction_one).to_stdout
+    expect{ subject.statement }.to output(transaction_two).to_stdout
+    expect{ subject.statement }.to output(transaction_three).to_stdout
   end
 end
