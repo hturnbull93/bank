@@ -12,11 +12,12 @@ class Account
     @balance += amount
     transaction = @transactionClass.new(credit: amount, balance: @balance)
   end
-
+  
   def withdraw(amount)
     raise 'Insufficient funds' if @balance < amount
-
+    
     @balance -= amount
+    transaction = @transactionClass.new(debit: amount, balance: @balance)
   end
 
   def statement

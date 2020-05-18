@@ -222,6 +222,36 @@ Test for display method to return a string in the format of a transaction row on
 
 Refactored the very similar creditFormat and debitFormat methods into a general method format that can accept either as an argument. the format method also uses a guard clause rather than an if block for brevity
 
+Wrote a test that makes use of all keyword arguments to make sure the display method works as intended.
+
+_It was also at this point i noticed that the figures should be displayed with trailing ".00", so adjusted the tests for that._
+
+- Added a .00 after the formatted item in the format method.
+- Also passed balance through this in the interpolated display.
+
+All tests Green.
+
+### Back to Account Statement
+
+- [ ] 4
+
+> As a Customer,  
+> So I can keep on top of my finances,  
+> I want to be able to print my account statement
+
+Now the Transaction class is implemented, the Account deposit and withdraw methods can create transactions that the account can hold. The Account statement method can loop through the held transactions, using their display methods to add to the statement.
+
+Wrote a test that the Account should use the Transaction class, and deposit method should call for a new transaction with the amount as credit and the new balance as balance. This test mocks the Transaction class and expects it to receive .new.
+
+- Injected the Transaction class to allow for testing in isolation.
+- deposit method creates a new instance of transaction with the credit amount and resulting balance.
+
+Green.
+
+Wrote a test that the withdraw method should call for a new transaction with the amount as debit and the new balance as balance. This test mocks the Transaction class and expects it to receive .new.
+
+- withdraw method creates a new instance of transaction with the debit amount and resulting balance.
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
