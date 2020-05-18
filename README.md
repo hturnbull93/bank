@@ -443,6 +443,11 @@ Wrote test for the print method, passing an array prints each element on a new l
 
 - Added an if else statement to check if the item passed is a string, if so puts it, else it is an array to join with new lines and puts that
 
+Refactored to use a ternary operator.
+
+- Injected the new Printer class into the Account class with keyword argument to `initialize`.
+- `@printer` is assigned with a new instance of the injected printer.
+- Reworked `statement` to print using `@printer.print`
 
 <!-- Links -->
 
