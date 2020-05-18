@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe Account do
@@ -40,6 +42,18 @@ describe Account do
 
     it 'withdrawing 1500 throws Insuficcient funds' do
       expect { subject.withdraw(1500) }.to raise_error('Insufficient funds')
+    end
+  end
+
+  describe 'uses Transaction class' do
+    let(:mockTransaction) { double(:transaction, display: "Mocked display row") }
+    let(:mockTransactionClass) { double(:transactionClass, new: mockTransaction) }
+
+    subject { Account.new(mockTransactionClass) }
+
+    it 'deposit calls for a new transaction with the credit amount and resulting balance' do
+      expect(mockTransactionClass).to receive(:new).with(credit: 100, balance: 100)
+      subject.deposit(100)
     end
   end
 end
