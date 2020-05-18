@@ -96,7 +96,17 @@ Initialised with Bundler, and added RSpec to the Gemfile in test/dev groups, the
 
 Initialised RSpec.
 
-### User Story 1
+### Accounts
+
+- [ ] 1
+
+> As a Bank Manager,  
+> So that we only take customers money,  
+> I want accounts to start with balance 0
+
+In `spec/account_spec.rb` wrote a tests for an Account class that is initialised with a balance of 0. Red.
+
+
 
 <!-- Links -->
 
