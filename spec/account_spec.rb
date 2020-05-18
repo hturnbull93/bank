@@ -40,7 +40,7 @@ describe Account do
       transaction_class = double(:transaction_class, new: "got new")
       subject = described_class.new(transaction_class: transaction_class)
       
-      expect(transaction_class).to receive(:new).with(credit: 100, balance: 100)
+      expect(transaction_class).to receive(:new).with(credit: 10000, balance: 10000)
       subject.deposit(100)
     end
     
@@ -49,7 +49,7 @@ describe Account do
       subject = described_class.new(transaction_class: transaction_class)
 
       subject.deposit(1000)
-      expect(transaction_class).to receive(:new).with(debit: 100, balance: 900)
+      expect(transaction_class).to receive(:new).with(debit: 10000, balance: 90000)
       subject.withdraw(100)
     end
   end
