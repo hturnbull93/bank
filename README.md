@@ -20,10 +20,10 @@ This is a small project to practice maintaining code quality and process. [Sourc
 **Then** she would see:
 
 ```irb
-date       || credit  || debit  || balance
-14/01/2012 ||         || 500.00 || 2500.00
-13/01/2012 || 2000.00 ||        || 3000.00
-10/01/2012 || 1000.00 ||        || 1000.00
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || || 3000.00
+10/01/2012 || 1000.00 || || 1000.00
 ```
 
 ## Development Journal
@@ -48,13 +48,13 @@ CRC modelling:
 > So I can keep my money safe,  
 > I want to be able to deposit into my account
 
-- [ ] 3
+- [x] 3
 
 > As a Customer,  
 > So I can spend my money,  
 > I want to be able to withdraw from my account
 
-- [ ] 3.1
+- [x] 3.1
 
 > As a Bank Manager,  
 > So we don't go out of pocket,  
@@ -136,7 +136,7 @@ Test for Account for two deposits, one of 100 and another of 300, results in bal
 
 ### Withdrawals
 
-- [ ] 3
+- [x] 3
 
 > As a Customer,  
 > So I can spend my money,  
@@ -154,13 +154,32 @@ Test for withdraw 200 results in balance of 800. Red.
 
 Green.
 
+- [x] 3.1
+
+> As a Bank Manager,  
+> So we don't go out of pocket,  
+> I want withdrawals to only be allowed to occur if the customer has sufficient funds
+
 Test for withdraw 1500 results in error: Insufficient funds.
 
 - within withdraw, if balance is less than amount raise 'Insufficient funds'
 
 Green.
 
-Refactored to guard clause from if block
+Refactored to guard clause from if block.
+
+### Statement
+
+- [ ] 4
+
+> As a Customer,  
+> So I can keep on top of my finances,  
+> I want to be able to print my account statement
+
+In `spec/account_feature_spec.rb` wrote a feature test based on the above acceptance criteria. Red.
+
+- Added statement method to account.
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
