@@ -36,17 +36,18 @@ describe Account do
   end
 
   describe 'uses Transaction class' do
-    let(:transaction) { double(:transaction) }
-    let(:transaction_class) { double(:transaction_class, new: transaction) }
-
-    subject { Account.new(transaction_class) }
-
     it 'deposit calls for a new transaction with the credit amount and balance' do
+      transaction_class = double(:transaction_class, new: "got new")
+      subject = Account.new(transaction_class)
+      
       expect(transaction_class).to receive(:new).with(credit: 100, balance: 100)
       subject.deposit(100)
     end
-
+    
     it 'withdraw calls for a new transaction with the debit amount and balance' do
+      transaction_class = double(:transaction_class, new: "got new")
+      subject = Account.new(transaction_class)
+      
       subject.deposit(1000)
       expect(transaction_class).to receive(:new).with(debit: 100, balance: 900)
       subject.withdraw(100)
