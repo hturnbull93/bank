@@ -142,9 +142,20 @@ Test for Account for two deposits, one of 100 and another of 300, results in bal
 > So I can spend my money,  
 > I want to be able to withdraw from my account
 
-Test for Account for a withdraw method. In the describe block added a before block to deposit 1000, so there is something to withdraw. Test for withdraw 100 results in a balance of 900. Red.
+Test for Account for a withdraw method. In the describe block added a before block to deposit 1000, so there is something to withdraw. 
+
+Test for withdraw 100 results in a balance of 900. Red.
 
 - Added withdraw method taking amount as param, sets balance to 900 hardcoded.
+
+Test for withdraw 200 results in balance of 800. Red.
+
+- withdraw now sets balance as balance less the withdrawn amount with the `-=` operator.
+
+Green.
+
+Test for withdraw 1500 results in error: Insufficient funds.
+
 
 
 <!-- Links -->
