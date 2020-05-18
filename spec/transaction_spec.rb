@@ -19,5 +19,10 @@ describe Transaction do
       subject = Transaction.new(debit: 500)
       expect(subject.display).to eq "#{@testTimeFormatted} || || 500 || "
     end
+
+    it 'has the balance it is initialised with in the third column' do
+      subject = Transaction.new(balance: 2000)
+      expect(subject.display).to eq "#{@testTimeFormatted} || || || 2000"
+    end
   end
 end

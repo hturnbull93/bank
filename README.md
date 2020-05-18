@@ -215,7 +215,9 @@ Test for display method to return a string in the format of a transaction row on
 
 Green.
 
+Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and balance in third column when initialised with a balance keyword argument.
 
+- 
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
