@@ -14,7 +14,7 @@ describe 'Account Feature Test' do
     allow(Time).to receive(:now).and_return(time2)
     subject.deposit(2000)
 
-    allow(Time).to receive(:now).and_return(time2)
+    allow(Time).to receive(:now).and_return(time3)
     subject.withdraw(500)
 
     statement = "date || credit || debit || balance
@@ -37,8 +37,8 @@ describe 'Account Feature Test' do
 
     allow(Time).to receive(:now).and_return(time2)
     subject.deposit(3000)
-
-    allow(Time).to receive(:now).and_return(time2)
+    
+    allow(Time).to receive(:now).and_return(time3)
     subject.withdraw(1500)
 
     statement = "date || credit || debit || balance
