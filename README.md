@@ -209,7 +209,7 @@ Green.
 
 Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and debit in third column when initialised with a debit keyword argument.
 
-- Transaction initialise takes a keyword argument debit defaulting to nil, used to set debit instance variable.
+- Transaction initialise takes another keyword argument debit defaulting to nil, used to set debit instance variable.
 - private helper method debitFormat checks if debit inst var is truthy then returns it as string with trailing space.
 - Display interpolates the debitFormat in the third column.
 
@@ -217,7 +217,9 @@ Green.
 
 Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and balance in third column when initialised with a balance keyword argument.
 
-- 
+- Transaction initialise takes another keyword argument balance defaulting to nil, used to set balance instance variable.
+- display method interpolates balance in last column (no need for formatting helper here as it is the last column).
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
