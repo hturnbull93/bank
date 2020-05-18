@@ -2,6 +2,54 @@
 
 This is a small project to practice maintaining code quality and process. [Source]
 
+It allows you to create an account, deposit funds into it, withdraw funds from it, and get statements.
+
+- [Bank](#bank)
+  - [Spec](#spec)
+    - [Requirements](#requirements)
+    - [Acceptance criteria](#acceptance-criteria)
+  - [Quick Start](#quick-start)
+  - [Screen Preview](#screen-preview)
+  - [Gems](#gems)
+    - [Rubocop Configuration](#rubocop-configuration)
+  - [Development Journal](#development-journal)
+    - [Domain Modelling](#domain-modelling)
+    - [User Stories](#user-stories)
+    - [Set up](#set-up)
+    - [Accounts](#accounts)
+    - [Deposits](#deposits)
+    - [Withdrawals](#withdrawals)
+    - [Statement](#statement)
+    - [Transactions](#transactions)
+    - [Back to Account Statement](#back-to-account-statement)
+    - [Clean Up](#clean-up)
+    - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
+    - [Pretty Print Statement](#pretty-print-statement)
+
+## Spec
+
+### Requirements
+
+- You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+- Deposits, withdrawal.
+- Account statement (date, amount, balance) printing.
+- Data can be kept in memory (it doesn't need to be stored to a database or anything).
+
+### Acceptance criteria
+
+**Given** a client makes a deposit of 1000 on 10-01-2012
+**And** a deposit of 2000 on 13-01-2012
+**And** a withdrawal of 500 on 14-01-2012
+**When** she prints her bank statement
+**Then** she would see:
+
+```irb
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || || 3000.00
+10/01/2012 || 1000.00 || || 1000.00
+```
+
 ## Quick Start
 
 1. Clone this repo.
@@ -38,7 +86,9 @@ This is a small project to practice maintaining code quality and process. [Sourc
 | account.withdraw(n) | withdraw n from your account where x is an integer |
 | p account.statement | prints a statement of all transactions so far      |
 
-You should see somthing similar to the below in your terminal:
+You should see something similar to the below in your terminal:
+
+## Screen Preview
 
 ![Screen preview](images/bank-screen-preview.png)
 
@@ -55,29 +105,13 @@ Testing and Development gems are:
 | simplecov         | Measures test coverage                            |
 | simplecov-console | Displays measured test coverage when rspec is run |
 
-## Spec
+### Rubocop Configuration
 
-### Requirements
+Rubocop config is specified in `.rubocop.yml`.
 
-- You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
-- Deposits, withdrawal.
-- Account statement (date, amount, balance) printing.
-- Data can be kept in memory (it doesn't need to be stored to a database or anything).
+Configured to ignore any file in the `spec` directory, and the `Gemfile`.
 
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012
-**And** a deposit of 2000 on 13-01-2012
-**And** a withdrawal of 500 on 14-01-2012
-**When** she prints her bank statement
-**Then** she would see:
-
-```irb
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
-```
+I have also disabled to documentation ruleset, to prevent it applying the `Missing top-level class documentation comment` rule (which for this small project is a bit overkill).
 
 ## Development Journal
 
