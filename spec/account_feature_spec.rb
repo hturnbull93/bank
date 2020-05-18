@@ -17,10 +17,7 @@ describe 'Account Feature Test' do
     allow(Time).to receive(:now).and_return(time3)
     subject.withdraw(500)
 
-    statement = "date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00"
+    statement = "date || credit || debit || balance\n14/01/2012 || || 500.00 || 2500.00 \n13/01/2012 || 2000.00 || || 3000.00 \n10/01/2012 || 1000.00 || || 1000.00 "
 
     expect(subject.statement).to eq statement
   end
@@ -41,10 +38,7 @@ describe 'Account Feature Test' do
     allow(Time).to receive(:now).and_return(time3)
     subject.withdraw(1500)
 
-    statement = "date || credit || debit || balance
-14/01/2012 || || 1500.00 || 3500.00
-13/01/2012 || 3000.00 || || 5000.00
-10/01/2012 || 2000.00 || || 2000.00"
+    statement = "date || credit || debit || balance\n14/01/2012 || || 1500.00 || 3500.00 \n13/01/2012 || 3000.00 || || 5000.00 \n10/01/2012 || 2000.00 || || 2000.00 "
 
     expect(subject.statement).to eq statement
   end
