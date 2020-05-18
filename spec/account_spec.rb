@@ -39,11 +39,11 @@ describe Account do
     it 'deposit calls for a new transaction with the credit amount and balance' do
       transaction_class = double(:transaction_class, new: "got new")
       subject = described_class.new(transaction_class: transaction_class)
-      
+
       expect(transaction_class).to receive(:new).with(credit: 10000, balance: 10000)
       subject.deposit(100)
     end
-    
+
     it 'withdraw calls for a new transaction with the debit amount and balance' do
       transaction_class = double(:transaction_class, new: "got new")
       subject = described_class.new(transaction_class: transaction_class)
