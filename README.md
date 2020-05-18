@@ -191,6 +191,29 @@ For this I think I should implement the Transaction class.
 
 In `spec/transaction_spec.rb` added a test for Transaction class, it's display method returns a string in the format of a transaction row on a statement, with the time in the first column. Red.
 
+In `lib/transaction.rb`:
+
+- Transaction class initialised with time as Time.now.
+- formatTime private helper method formats the time as the required "dd/mm/yyyy" string.
+- display method returns the formatTime result into a string with columns as per the statement transaction row.
+
+Green.
+
+Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and credit in second column when initialised with a credit keyword argument.
+
+- Transaction initialise takes a keyword argument credit defaulting to nil, used to set credit instance variable.
+- private helper method creditFormat checks if credit inst var is truthy then returns it as string with trailing space (easiest way I could find to get correct formatting).
+- Display interpolates the creditFormat in the second column.
+
+Green.
+
+Test for display method to return a string in the format of a transaction row on a statement, with the time in the first column, and debit in third column when initialised with a debit keyword argument.
+
+- Transaction initialise takes a keyword argument debit defaulting to nil, used to set debit instance variable.
+- private helper method debitFormat checks if debit inst var is truthy then returns it as string with trailing space.
+- Display interpolates the debitFormat in the third column.
+
+Green.
 
 
 <!-- Links -->

@@ -1,11 +1,12 @@
 class Transaction
-  def initialize(credit: nil)
+  def initialize(credit: nil, debit:nil)
     @time = Time.now
     @credit = credit
+    @debit = debit
   end
 
   def display
-    "#{formatTime} || #{creditFormat}|| || "
+    "#{formatTime} || #{creditFormat}|| #{debitFormat}|| "
   end
 
   private
@@ -13,6 +14,12 @@ class Transaction
   def creditFormat
     if @credit
       "#{@credit} "
+    end
+  end
+
+  def debitFormat
+    if @debit
+      "#{@debit} "
     end
   end
 
