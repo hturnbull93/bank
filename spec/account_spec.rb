@@ -8,17 +8,17 @@ describe Account do
   end
 
   describe '.deposit' do
-    it 'passing 100 results in balance of 100' do
+    it 'depositing 100 results in balance of 100' do
       subject.deposit(100)
       expect(subject.balance).to eq 100
     end
 
-    it 'passing 200 results in balance of 200' do
+    it 'depositing 200 results in balance of 200' do
       subject.deposit(200)
       expect(subject.balance).to eq 200
     end
 
-    it 'passing 100 then 300 results in balance of 400' do
+    it 'depositing 100 then 300 results in balance of 400' do
       subject.deposit(100)
       subject.deposit(300)
       expect(subject.balance).to eq 400
@@ -30,12 +30,12 @@ describe Account do
       subject.deposit(1000)
     end
 
-    it 'passing 100 results in a balance of 900' do
+    it 'withdrawing 100 results in a balance of 900' do
       subject.withdraw(100)
       expect(subject.balance).to eq 900
     end
 
-    it 'passing 200 results in a balance of 800' do
+    it 'withdrawing 200 results in a balance of 800' do
       subject.withdraw(200)
       expect(subject.balance).to eq 800
     end
