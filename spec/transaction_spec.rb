@@ -10,4 +10,9 @@ describe Transaction do
       expect(subject.display).to eq "#{@testTimeFormatted} || || || "
     end
   end
+      
+  it 'has the credit it is initialised with in the second column' do
+    subject = Transaction.new(credit: 500)
+    expect(subject.display).to eq "#{@testTimeFormatted} || 500 || || "
+  end
 end
