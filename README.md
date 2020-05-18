@@ -144,7 +144,7 @@ Test for Account for two deposits, one of 100 and another of 300, results in bal
 
 Test for Account for a withdraw method. In the describe block added a before block to deposit 1000, so there is something to withdraw. Test for withdraw 100 results in a balance of 900. Red.
 
-- added
+- Added withdraw method taking amount as param, sets balance to 900 hardcoded.
 
 
 <!-- Links -->
