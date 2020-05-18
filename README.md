@@ -302,7 +302,7 @@ Refactors:
 
 ### Clean Up
 
-Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never).
+Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`
 
 <!-- Links -->
 
