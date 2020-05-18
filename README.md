@@ -465,6 +465,7 @@ Included this module in Account and Transaction classes.
 - Inputs sanitised to pence with `to_pence`.
 - Return strings etc format from pence to pounds with 2 decimals with `as_pounds`.
 
+Refactored `as_pounds` to use the `format` method instead of `sprintf` as per Rubocop suggestion.
 
 <!-- Links -->
 
