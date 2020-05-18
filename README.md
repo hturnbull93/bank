@@ -296,7 +296,7 @@ Green.
 
 Refactors:
 
-- Extracted helper method `addDepositTransaction` and `addWithdrawTransaction` from deposit and withdraw taking the same keyword arguments as the `new` method call they used before.
+- Extracted private helper methods `addDepositTransaction` and `addWithdrawTransaction` from deposit and withdraw taking the same keyword arguments as the `new` method call they used before.
 - Extracted constant `STATEMENT_HEADER` from the `statement` method.
 - Used `&:display` in the statement map to proc the display method on the element rather than using a full map block.
 
