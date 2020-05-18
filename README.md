@@ -38,6 +38,10 @@ This is a small project to practice maintaining code quality and process. [Sourc
 | account.withdraw(n) | withdraw n from your account where x is an integer |
 | p account.statement | prints a statement of all transactions so far      |
 
+You should see somthing similar to the below in your terminal:
+
+![Screen preview](images/screen-preview.png)
+
 ## Gems
 
 This project has no production dependencies.
