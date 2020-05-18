@@ -30,7 +30,7 @@ class Account
   end
 
   private
-  
+
   def addDepositTransaction(credit: nil, balance: nil)
     @transactionHistory.unshift @transactionClass.new(credit: credit, balance: balance)
   end

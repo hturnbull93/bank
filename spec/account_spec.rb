@@ -46,7 +46,7 @@ describe Account do
   end
 
   describe 'uses Transaction class' do
-    let(:mockTransaction) { double(:transaction, display: "Mocked display row") }
+    let(:mockTransaction) { double(:transaction, display: 'Mocked display row') }
     let(:mockTransactionClass) { double(:transactionClass, new: mockTransaction) }
 
     subject { Account.new(mockTransactionClass) }

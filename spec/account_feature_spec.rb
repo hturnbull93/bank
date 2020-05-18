@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'account'
 
 describe 'Account Feature Test' do
   it 'deposit 1000, 2000 then withdraw 500' do
-    time1 = Time.new(2012,01,10,12)
-    time2 = Time.new(2012,01,13,12)
-    time3 = Time.new(2012,01,14,12)
+    time1 = Time.new(2012, 1, 10, 12)
+    time2 = Time.new(2012, 1, 13, 12)
+    time3 = Time.new(2012, 1, 14, 12)
 
     subject = Account.new
 
@@ -23,9 +25,9 @@ describe 'Account Feature Test' do
   end
 
   it 'deposit 2000, 3000 then withdraw 1500' do
-    time1 = Time.new(2012,01,10,12)
-    time2 = Time.new(2012,01,13,12)
-    time3 = Time.new(2012,01,14,12)
+    time1 = Time.new(2012, 1, 10, 12)
+    time2 = Time.new(2012, 1, 13, 12)
+    time3 = Time.new(2012, 1, 14, 12)
 
     subject = Account.new
 
@@ -34,7 +36,7 @@ describe 'Account Feature Test' do
 
     allow(Time).to receive(:now).and_return(time2)
     subject.deposit(3000)
-    
+
     allow(Time).to receive(:now).and_return(time3)
     subject.withdraw(1500)
 
@@ -42,5 +44,4 @@ describe 'Account Feature Test' do
 
     expect(subject.statement).to eq statement
   end
-
 end

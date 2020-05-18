@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Transaction
   def initialize(credit: nil, debit: nil, balance: nil)
     @time = Time.now
