@@ -54,12 +54,14 @@ describe Account do
     end
   end
 
-  it '.statement uses printer class' do
-    printer = double(:printer)
-    printer_class = double(:printer_class, new: printer)
-    subject = described_class.new(printer_class: printer_class)
+  describe '.statement' do
+    it 'uses printer class' do
+      printer = double(:printer)
+      printer_class = double(:printer_class, new: printer)
+      subject = described_class.new(printer_class: printer_class)
 
-    expect(printer).to receive(:print).twice
-    subject.statement
+      expect(printer).to receive(:print).twice
+      subject.statement
+    end
   end
 end
