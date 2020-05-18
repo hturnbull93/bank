@@ -377,6 +377,12 @@ Green.
 
 ### Pretty Print Statement
 
+Adjusted the feature tests to check for output to standard out rather than just for the returned value. Red.
+
+Added a puts to the `statement` so the result is printed out properly, rather than returning a poorly formatted string.
+
+Green.
+
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
