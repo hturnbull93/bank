@@ -460,7 +460,8 @@ In `lib/conversion.rb`:
 - Created a new method, `to_pence`, taking an amount, multiplying by 100 then converting to integer.
 - Created a new method, `as_pounds`, calling the `sprintf` method with two decimal places, and the passed amount (as pence) divided by 100.
 
-- Included this module in Account and Transaction classes.
+Included this module in Account and Transaction classes.
+
 - Inputs sanitised to pence with `to_pence`.
 - Return strings etc format from pence to pounds with 2 decimals with `as_pounds`.
 
