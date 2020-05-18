@@ -439,6 +439,9 @@ Wrote test for the print method, passing "Hi There" prints "Hi There" to stdout 
 
 Green.
 
+Wrote test for the print method, passing an array prints each element on a new line. Red.
+
+- Added an if else statement to check if the item passed is a string, if so puts it, else it is an array to join with new lines and puts that
 
 
 <!-- Links -->

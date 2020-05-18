@@ -1,5 +1,9 @@
 class Printer
   def print(item)
-    puts item
+    if item.kind_of?(String)
+      puts item
+    else
+      puts item.join("\n")
+    end
   end
 end
