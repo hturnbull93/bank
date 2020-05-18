@@ -158,6 +158,9 @@ Test for withdraw 1500 results in error: Insufficient funds.
 
 - within withdraw, if balance is less than amount raise 'Insufficient funds'
 
+Green.
+
+Refactored to guard clause from if block
 <!-- Links -->
 
 [source]: https://github.com/makersacademy/course/blob/master/individual_challenges/bank_tech_test.md
