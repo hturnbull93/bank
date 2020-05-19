@@ -84,8 +84,8 @@ date || credit || debit || balance
 
 | Method                     | Description                                      |
 | -------------------------- | ------------------------------------------------ |
-| `account.deposit(number)`  | deposit however much you want into your account  |
-| `account.withdraw(number)` | withdraw however much you want from your account |
+| `account.deposit(number)`  | deposit however much you want into your account, this figure is in pounds with pence as decimals.  |
+| `account.withdraw(number)` | withdraw however much you want from your account, this figure is in pounds with pence as decimals. |
 | `account.statement`        | prints a statement of all transactions so far    |
 
 You should see something similar to the below in your terminal:
