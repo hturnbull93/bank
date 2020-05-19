@@ -18,19 +18,19 @@ class Account
   end
 
   def deposit(amount)
-    pence = to_pence(amount)
-    @balance += pence
-    add_deposit(credit: pence, balance: @balance)
-    "#{as_pounds(pence)} deposited. Current balance: #{as_pounds(@balance)}"
+    credit = to_pence(amount)
+    @balance += credit
+    add_deposit(credit: credit, balance: @balance)
+    "#{as_pounds(credit)} deposited. Current balance: #{as_pounds(@balance)}"
   end
 
   def withdraw(amount)
-    pence = to_pence(amount)
+    debit = to_pence(amount)
     return 'Insufficient funds' if @balance < pence
 
-    @balance -= pence
-    add_withrawal(debit: pence, balance: @balance)
-    "#{as_pounds(pence)} withdrawn. Current balance: #{as_pounds(@balance)}"
+    @balance -= debit
+    add_withrawal(debit: debit, balance: @balance)
+    "#{as_pounds(debit)} withdrawn. Current balance: #{as_pounds(@balance)}"
   end
 
   def statement
