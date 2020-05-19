@@ -3,7 +3,7 @@
 
 This is a small project to practice maintaining code quality and process. [Source]
 
-It allows you to create an account, deposit funds into it, withdraw funds from it, and get statements.
+It allows you to create an account, deposit funds into it, withdraw funds from it, and print statements.
 
 - [Spec](#spec)
   - [Requirements](#requirements)
