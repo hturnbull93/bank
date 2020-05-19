@@ -1,6 +1,56 @@
+<!-- omit in toc -->
 # Bank
 
 This is a small project to practice maintaining code quality and process. [Source]
+
+It allows you to create an account, deposit funds into it, withdraw funds from it, and print statements.
+
+- [Spec](#spec)
+  - [Requirements](#requirements)
+  - [Acceptance criteria](#acceptance-criteria)
+- [Quick Start](#quick-start)
+- [Screen Preview](#screen-preview)
+- [Gems](#gems)
+  - [Rubocop Configuration](#rubocop-configuration)
+- [Development Journal](#development-journal)
+  - [Domain Modelling](#domain-modelling)
+  - [User Stories](#user-stories)
+  - [Set up](#set-up)
+  - [Accounts](#accounts)
+  - [Deposits](#deposits)
+  - [Withdrawals](#withdrawals)
+  - [Statement](#statement)
+  - [Transactions](#transactions)
+  - [Back to Account Statement](#back-to-account-statement)
+  - [Simplecov and Rubocop](#simplecov-and-rubocop)
+  - [Pretty Deposit & Withdraw Returns](#pretty-deposit--withdraw-returns)
+  - [Pretty Print Statement](#pretty-print-statement)
+  - [Extracting a Printer Class](#extracting-a-printer-class)
+  - [Refactoring To Use Pence](#refactoring-to-use-pence)
+
+## Spec
+
+### Requirements
+
+- You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
+- Deposits, withdrawal.
+- Account statement (date, amount, balance) printing.
+- Data can be kept in memory (it doesn't need to be stored to a database or anything).
+
+### Acceptance criteria
+
+**Given** a client makes a deposit of 1000 on 10-01-2012  
+**And** a deposit of 2000 on 13-01-2012  
+**And** a withdrawal of 500 on 14-01-2012  
+**When** she prints her bank statement  
+**Then** she would see:
+
+```irb
+date || credit || debit || balance
+14/01/2012 || || 500.00 || 2500.00
+13/01/2012 || 2000.00 || || 3000.00
+10/01/2012 || 1000.00 || || 1000.00
+```
 
 ## Quick Start
 
@@ -32,13 +82,15 @@ This is a small project to practice maintaining code quality and process. [Sourc
 
 5. Use your account with the following methods
 
-| Method              | Description                                        |
-| ------------------- | -------------------------------------------------- |
-| account.deposit(n)  | deposit n into your account where x is an integer  |
-| account.withdraw(n) | withdraw n from your account where x is an integer |
-| p account.statement | prints a statement of all transactions so far      |
+| Method                     | Description                                      |
+| -------------------------- | ------------------------------------------------ |
+| `account.deposit(number)`  | deposit however much you want into your account, this figure is in pounds with pence as decimals.  |
+| `account.withdraw(number)` | withdraw however much you want from your account, this figure is in pounds with pence as decimals. |
+| `account.statement`        | prints a statement of all transactions so far    |
 
-You should see somthing similar to the below in your terminal:
+You should see something similar to the below in your terminal:
+
+## Screen Preview
 
 ![Screen preview](images/bank-screen-preview.png)
 
@@ -55,29 +107,13 @@ Testing and Development gems are:
 | simplecov         | Measures test coverage                            |
 | simplecov-console | Displays measured test coverage when rspec is run |
 
-## Spec
+### Rubocop Configuration
 
-### Requirements
+Rubocop config is specified in `.rubocop.yml`.
 
-- You should be able to interact with your code via a REPL like IRB or the JavaScript console. (You don't need to implement a command line interface that takes input from STDIN.)
-- Deposits, withdrawal.
-- Account statement (date, amount, balance) printing.
-- Data can be kept in memory (it doesn't need to be stored to a database or anything).
+Configured to ignore any file in the `spec` directory, and the `Gemfile`.
 
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012
-**And** a deposit of 2000 on 13-01-2012
-**And** a withdrawal of 500 on 14-01-2012
-**When** she prints her bank statement
-**Then** she would see:
-
-```irb
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
-```
+I have also disabled to documentation ruleset, to prevent it applying the `Missing top-level class documentation comment` rule (which for this small project is a bit overkill).
 
 ## Development Journal
 
@@ -227,6 +263,8 @@ Green.
 
 Refactored to guard clause from if block.
 
+_Later refactored to simply return a string 'Insufficient funds', rather than raising a runtime error._
+
 ### Statement
 
 - [x] 4
@@ -353,7 +391,7 @@ Refactors:
 - Extracted constant `STATEMENT_HEADER` from the `statement` method.
 - Used `&:display` in the statement map to proc the display method on the element rather than using a full map block.
 
-### Clean Up
+### Simplecov and Rubocop
 
 Added simplecov and simplecov console gems and configured them in `spec_helper.rb` to check code coverage (better late than never). Also added `coverage` to `.gitignore`.
 
@@ -363,6 +401,9 @@ Based on Rubocop suggestions:
 
 - Renamed several variable and method names to snake_case convention (been doing too much JavaSript it seems).
 - Excluded spec files in `.rubocop.yml` as these tend to have large blocks and long lines (e.g. the result of the feature tests.)
+
+Also:
+
 - Account `initialise` method sets `@balance` with new constant `STARTING_BALANCE` as 0.
 
 ### Pretty Deposit & Withdraw Returns
@@ -383,6 +424,53 @@ Adjusted the feature tests to check for output to standard out rather than just 
 Added a puts to the `statement` so the result is printed out properly, rather than returning a poorly formatted string.
 
 Green.
+
+### Extracting a Printer Class
+
+It was pointed out to me that there could be a printer class.
+
+In `spec/printer_spec.rb`:
+
+Wrote test for a print method, passing "Hello World" prints "Hello World" to stdout with a newline. Red.
+
+In `lib/printer.rb`:
+
+- Added a Printer class with method `print` that puts "Hello World"
+
+Green.
+
+Wrote test for the print method, passing "Hi There" prints "Hi There" to stdout with a newline. Red.
+
+- `print` puts what you pass in as argument.
+
+Green.
+
+Wrote test for the print method, passing an array prints each element on a new line. Red.
+
+- Added an if else statement to check if the item passed is a string, if so puts it, else it is an array to join with new lines and puts that
+
+Refactored to use a ternary operator.
+
+Wrote test that `statement` uses printer class.
+
+- Injected the new Printer class into the Account class with keyword argument to `initialize`.
+- `@printer` is assigned with a new instance of the injected printer.
+- Reworked `statement` to print using `@printer.print`.
+
+### Refactoring To Use Pence
+
+In `lib/conversion.rb`:
+
+- Created a new module, Conversion.
+- Created a new method, `to_pence`, taking an amount, multiplying by 100 then converting to integer.
+- Created a new method, `as_pounds`, calling the `sprintf` method with two decimal places, and the passed amount (as pence) divided by 100.
+
+Included this module in Account and Transaction classes.
+
+- Inputs sanitised to pence with `to_pence`.
+- Return strings etc format from pence to pounds with 2 decimals with `as_pounds`.
+
+Refactored `as_pounds` to use the `format` method instead of `sprintf` as per Rubocop suggestion.
 
 <!-- Links -->
 

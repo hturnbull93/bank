@@ -19,38 +19,49 @@ describe Account do
   end
   
   describe '.withdraw (with 1000 deposited first)' do
-    before(:each) do
-      subject.deposit(1000)
-    end
-    
     it 'withdrawing 100 results in a balance of 900' do
+      subject.deposit(1000)
       expect(subject.withdraw(100)).to eq '100.00 withdrawn. Current balance: 900.00'
     end
     
     it 'withdrawing 200 results in a balance of 800' do
+      subject.deposit(1000)
       expect(subject.withdraw(200)).to eq '200.00 withdrawn. Current balance: 800.00'
     end
-
+    
     it 'withdrawing 1500 throws Insuficcient funds' do
-      expect { subject.withdraw(1500) }.to raise_error('Insufficient funds')
+      subject.deposit(1000)
+      expect(subject.withdraw(1500)).to eq 'Insufficient funds'
     end
   end
 
   describe 'uses Transaction class' do
-    let(:transaction) { double(:transaction) }
-    let(:transaction_class) { double(:transaction_class, new: transaction) }
-
-    subject { Account.new(transaction_class) }
-
     it 'deposit calls for a new transaction with the credit amount and balance' do
-      expect(transaction_class).to receive(:new).with(credit: 100, balance: 100)
+      transaction_class = double(:transaction_class, new: "got new")
+      subject = described_class.new(transaction_class: transaction_class)
+
+      expect(transaction_class).to receive(:new).with(credit: 10000, balance: 10000)
       subject.deposit(100)
     end
 
     it 'withdraw calls for a new transaction with the debit amount and balance' do
+      transaction_class = double(:transaction_class, new: "got new")
+      subject = described_class.new(transaction_class: transaction_class)
+
       subject.deposit(1000)
-      expect(transaction_class).to receive(:new).with(debit: 100, balance: 900)
+      expect(transaction_class).to receive(:new).with(debit: 10000, balance: 90000)
       subject.withdraw(100)
+    end
+  end
+
+  describe '.statement' do
+    it 'uses printer class' do
+      printer = double(:printer)
+      printer_class = double(:printer_class, new: printer)
+      subject = described_class.new(printer_class: printer_class)
+
+      expect(printer).to receive(:print).twice
+      subject.statement
     end
   end
 end

@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require_relative './conversion.rb'
+
 class Transaction
+  include Conversion
+
   def initialize(credit: nil, debit: nil, balance: nil)
     @time = Time.now
     @credit = credit
@@ -15,7 +19,7 @@ class Transaction
   private
 
   def format(item)
-    "#{item}.00 " if item
+    "#{as_pounds(item)} " if item
   end
 
   def time
