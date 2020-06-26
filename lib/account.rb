@@ -26,7 +26,7 @@ class Account
 
   def withdraw(amount)
     debit = to_pence(amount)
-    return 'Insufficient funds' if @balance < pence
+    return 'Insufficient funds' if @balance < debit
 
     @balance -= debit
     add_withrawal(debit: debit, balance: @balance)
