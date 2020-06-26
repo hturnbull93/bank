@@ -6,6 +6,6 @@ module Conversion
   end
 
   def as_pounds(amount)
-    format('%<amount>.2f', amount: amount / 100)
+    '%.2f' % (amount.to_f / 100)
   end
 end
