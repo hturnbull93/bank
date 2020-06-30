@@ -1,7 +1,10 @@
 <!-- omit in toc -->
-# Bank
+# Bank - Ruby
 
 This is a small project to practice maintaining code quality and process. [Source]
+
+I have created a JavaScript implementation for the [browser](https://github.com/hturnbull93/bank-js/), and in [node](https://github.com/hturnbull93/bank-node/).
+I have also made a Python implementation, [available here](https://github.com/hturnbull93/bank-py/).
 
 It allows you to create an account, deposit funds into it, withdraw funds from it, and print statements.
 
